@@ -12,7 +12,6 @@
                 >
                     <a class="duration-500" href="/art">Art</a>
                     <a class="duration-500" href="/collection">Collection</a>
-                    <a class="duration-500" href="/">Art</a>
                 </div>
             </div>
             <a href="/#contact">CONTACT US</a>

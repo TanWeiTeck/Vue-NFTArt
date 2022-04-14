@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class LogoutController extends Controller
 {
-    public function handle()
+    public function handle(Request $request)
     {
-        auth()->logout();
+        Auth()->logout();
 
-        return redirect('/');
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('admin');
     }
 }

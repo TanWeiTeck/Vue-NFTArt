@@ -15,12 +15,12 @@ class LoginController extends Controller
 
     public function handle()
     {
-        $success = auth()->attempt([
+        $login = auth()->attempt([
             'email' => request('email'),
             'password' => request('password')
         ], request()->has('remember'));
 
-        if($success) {
+        if($login) {
             return redirect()->to(RouteServiceProvider::HOME);
         }
 
@@ -28,5 +28,4 @@ class LoginController extends Controller
             'password' => 'The provided credentials do not match our records.',
         ]);
     }
-
 }

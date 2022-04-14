@@ -5495,7 +5495,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "SlidingSideMenu",
@@ -5550,10 +5549,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
-//
-//
-//
 //
 //
 //
@@ -5754,8 +5749,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5807,7 +5800,7 @@ Vue.component("vue-productcard", (__webpack_require__(/*! ./components/ProductCa
 Vue.component("vue-productcardpopup", (__webpack_require__(/*! ./components/ProductCardPopUp.vue */ "./resources/js/components/ProductCardPopUp.vue")["default"]));
 Vue.component("vue-primarybutton", (__webpack_require__(/*! ./components/PrimaryButton.vue */ "./resources/js/components/PrimaryButton.vue")["default"]));
 Vue.component("vue-googlemap", (__webpack_require__(/*! ./components/GoogleMap.vue */ "./resources/js/components/GoogleMap.vue")["default"]));
-Vue.component("vue-scrolltotop", (__webpack_require__(/*! ./components/ScrollToTop.vue */ "./resources/js/components/ScrollToTop.vue")["default"])); // import Vue from "vue";
+Vue.component("vue-scrolltotop", (__webpack_require__(/*! ./components/ScrollToTop.vue */ "./resources/js/components/ScrollToTop.vue")["default"])); // Google Map
 
 
 Vue.use(vue2_google_maps__WEBPACK_IMPORTED_MODULE_0__, {
@@ -30217,10 +30210,6 @@ var staticRenderFns = [
                 { staticClass: "duration-500", attrs: { href: "/collection" } },
                 [_vm._v("Collection")]
               ),
-              _vm._v(" "),
-              _c("a", { staticClass: "duration-500", attrs: { href: "/" } }, [
-                _vm._v("Art"),
-              ]),
             ]
           ),
         ]),
@@ -30295,10 +30284,7 @@ var render = function () {
       },
       [
         _c("img", {
-          attrs: {
-            src: "https://www.zdnet.com/a/img/resize/80888999f165ac6a14b9cbcaa9cdc93399a10acc/2022/01/21/968b39f9-3c62-49f2-b739-ff3567d9c131/nft-1.jpg?width=1200&height=1200&fit=crop&auto=webp",
-            alt: "",
-          },
+          attrs: { src: "/storage/image/" + _vm.product.image, alt: "" },
         }),
         _vm._v(" "),
         _c("div", { staticClass: "p-2 flex flex-col justify-end" }, [
@@ -30371,7 +30357,16 @@ var render = function () {
             "h-full flex flex-col md:flex-row justify-center content-center items-center m-2",
         },
         [
-          _vm._m(0),
+          _c(
+            "div",
+            { staticClass: "overflow-hidden bg-gray-900 rounded-l-lg" },
+            [
+              _c("img", {
+                staticClass: "object-contain h-80",
+                attrs: { src: "/storage/image/" + _vm.product.image, alt: "" },
+              }),
+            ]
+          ),
           _vm._v(" "),
           _c(
             "div",
@@ -30407,7 +30402,7 @@ var render = function () {
               _vm._v(" "),
               _c("hr"),
               _vm._v(" "),
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c(
                 "a",
@@ -30426,24 +30421,6 @@ var render = function () {
   )
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "overflow-hidden bg-gray-900 rounded-l-lg" },
-      [
-        _c("img", {
-          staticClass: "object-contain h-80",
-          attrs: {
-            src: "https://www.zdnet.com/a/img/resize/80888999f165ac6a14b9cbcaa9cdc93399a10acc/2022/01/21/968b39f9-3c62-49f2-b739-ff3567d9c131/nft-1.jpg?width=1200&height=1200&fit=crop&auto=webp",
-            alt: "",
-          },
-        }),
-      ]
-    )
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
@@ -30625,12 +30602,6 @@ var staticRenderFns = [
           attrs: { href: "/collection" },
         },
         [_vm._v("Collection")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        { staticClass: "hover:text-white duration-500", attrs: { href: "/" } },
-        [_vm._v("Art")]
       ),
     ])
   },

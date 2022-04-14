@@ -12,24 +12,23 @@ use App\Mail\PurchaseOrder;
 class ProductController extends Controller
 {
     public function index() {
-        $Product = Product::with('category')->get();
+        $product = Product::with('category')->get();
         // dd($Product);
-        return view('all', ['product' => $Product]);
+        return view('all', ['product' => $product]);
     }
     public function index1() {
-        $Product = Product::where('category_id',1)->GET();
-        return view('art', ['product' => $Product]);
+        $product = Product::where('category_id',1)->get();
+        return view('art', ['product' => $product]);
     }
 
     public function index2() {
-        $Product = Product::where('category_id',2)->GET();
-        return view('collection', ['product' => $Product]);
+        $product = Product::where('category_id',2)->get();
+        return view('collection', ['product' => $product]);
     }
 
-
     public function payment($id) {
-        $Product = Product::find($id);
-        return view('payment', ['product' => $Product]);
+        $product = Product::find($id);
+        return view('payment', ['product' => $product]);
     }
 
     public function store(Request $request) {
@@ -43,19 +42,10 @@ class ProductController extends Controller
         ]);
 
 
-        $Purchase = Purchase::create($request->all());
+        $purchase = Purchase::create($request->all());
         // dd($Purchase);
         $receiverEmailAddress = ['tanweiteck.twt@gmail.com'];
-        Mail::to($receiverEmailAddress)->send(new PurchaseOrder($Purchase));
+        Mail::to($receiverEmailAddress)->send(new PurchaseOrder($purchase));
         return redirect('/')->with('success', 'Congratulations !! Transaction Successful');
     }
-
-
-
-
-// FOR FILTER
-    // public function index() {
-    //     $Product = Product::where('category_id', 1)->GET();
-    //     return view('home', ['product' => $Product]);
-    // }
 }

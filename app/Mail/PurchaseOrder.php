@@ -19,17 +19,16 @@ class PurchaseOrder extends Mailable
      * @var \App\Models\Purchase
      */
 
-    public $Purchase;
+    public $purchase;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($Purchase)
+    public function __construct($purchase)
     {
-        $this->Purchase = $Purchase;
-        // dd($Purchase);
+        $this->purchase = $purchase;
     }
 
     /**
@@ -39,8 +38,6 @@ class PurchaseOrder extends Mailable
      */
     public function build()
     {
-        // dd($this->Purchase);
-        // dd($Purchase);
         return $this->from('tanwt08180@gmail.com')->view('admin.purchaseemail')->subject('New Purchase');
     }
 }

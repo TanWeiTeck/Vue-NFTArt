@@ -10,7 +10,7 @@ use App\Models\Product;
 class HomeController extends Controller
 {
     public function index(){
-        $product = Product::all();
+        $product = Product::get();
         return view('home', ['product' => $product]);
     }
 }

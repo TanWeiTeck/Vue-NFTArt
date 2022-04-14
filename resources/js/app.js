@@ -20,10 +20,12 @@ window.Vue = require("vue").default;
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component("vue-menu", require("./components/Menu.vue").default);
+
 Vue.component(
     "vue-productcard",
     require("./components/ProductCard.vue").default
 );
+
 Vue.component(
     "vue-productcardpopup",
     require("./components/ProductCardPopUp.vue").default
@@ -41,7 +43,7 @@ Vue.component(
     require("./components/ScrollToTop.vue").default
 );
 
-// import Vue from "vue";
+// Google Map
 import * as VueGoogleMaps from "vue2-google-maps";
 
 Vue.use(VueGoogleMaps, {

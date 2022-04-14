@@ -5,9 +5,9 @@
 @section('content')
     <h1 class="text-center p-3 text-3xl font-light">Payment Page</h1>
     <form action="/payment" method="POST" class="flex flex-col max-w-md m-auto ">
-        @csrf
+    @csrf
 
-        <input class='hidden' type="text" name="id" value={{$product['id']}}>
+        <input class='hidden' type="text" name="id" value={{$product->id}}>
 
         <div class="flex flex-col w-full px-4">
             <label class="text-xl mt-2 md:mt-3 text-blue-900 font-extrabold">Name </label>
@@ -25,19 +25,19 @@
 
         <div class="flex flex-col w-full px-4 space-y-3">
 
-        <label class="text-xl mt-2 md:mt-3 text-blue-900 font-extrabold"> Payment Method </label>
+            <label class="text-xl mt-2 md:mt-3 text-blue-900 font-extrabold"> Payment Method </label>
 
-        <div class="flex space-x-6 ">
-            <div class="flex items-center space-x-4">
-                <input type="radio" name="payment_method" value="creditcard">
-                <label>Credit Card Payment</label>
+            <div class="flex space-x-6 ">
+                <div class="flex items-center space-x-4">
+                    <input type="radio" name="payment_method" value="creditcard">
+                    <label>Credit Card Payment</label>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <input type="radio" name="payment_method" value="onlinebanking">
+                    <label>Online Banking</label>
+                </div>
             </div>
-            <div class="flex items-center space-x-4">
-                <input type="radio" name="payment_method" value="onlinebanking">
-                <label>Online Banking</label>
-            </div>
-        </div>
-        @if ($errors->any())
+            @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -45,16 +45,12 @@
                     @endforeach
                 </ul>
             </div>
-        @endif
-    </div>
-    <div class="py-4 px-4">
-        <vue-primarybutton type='submit' name=''>Next</vue-primarybutton>
-    </div>
+            @endif
+        </div>
+        <div class="py-4 px-4">
+            <vue-primarybutton type='submit' name=''>Next</vue-primarybutton>
+        </div>
 
     </form>
-
-
-
-
 
 @stop

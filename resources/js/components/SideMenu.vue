@@ -27,8 +27,6 @@
             <ul class="flex flex-col space-y-3 pl-1">
                 <a class="hover:text-white duration-500" href="/art">Art</a>
                 <a class="hover:text-white duration-500" href="/collection">Collection</a>
-                <a class="hover:text-white duration-500" href="/">Art</a>
-
             </ul>
         </div>
 

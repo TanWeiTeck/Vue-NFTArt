@@ -2,23 +2,15 @@
     'title' => 'All Product',
     ])
 
-
-
 @section('content')
-
-<div class="flex">
-    <div class="bg-white p-4 min-w-[200px] flex flex-col space-y-5">
-        <a href="/all" class="font-bold">All Product</a>
-        <a href="/art">Art</a>
-        <a href="/collection">Collection</a>
+    <div class="flex flex-col lg:flex-row">
+        <div class="bg-white p-3 min-w-[200px] flex lg:flex-col lg:justify-start justify-around">
+            <a href="/all" class="font-bold p-2">All Product</a>
+            <a href="/art" class="p-2">Art</a>
+            <a href="/collection" class="p-2">Collection</a>
+        </div>
+        @include('partials.productsection', ['slot'=> 'All Product'])
     </div>
-
-
-    @include('partials.productsection', ['slot'=> 'All Product'])
-</div>
-
-
-
 @stop
 
 

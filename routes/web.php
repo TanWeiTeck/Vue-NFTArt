@@ -8,6 +8,10 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Web\AdminController;
 use App\Http\Controllers\JoinTableController;
+// email verification
+use App\Http\Controllers\Auth\VerificationController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,28 +31,30 @@ Route::get('/collection', [ProductController::class, 'index2']);
 Route::get('/payment{id}', [ProductController::class, 'payment']);
 Route::post('/payment', [ProductController::class, 'store']);
 
-
-Route::get('/try', [JoinTableController::class, 'index']);
-
 // admin
-Route::get('/register', [RegisterController::class, 'show'])->name('register');
-Route::post('/register', [RegisterController::class, 'handle'])->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'register'])->name('register');
 
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('/login', [LoginController::class, 'handle'])->name('login');
 
-Route::post('/logout', [LogoutController::class, 'handle'])->name('logout');
 
-
+ // Email verification
 Route::middleware(['auth'])->group(function(){
-    Route::get('admin',[AdminController::class, 'index'])->name('admin');
+    Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware(['signed']);
+    Route::post('/email/resend', [VerificationController::class, 'resend'])->name('verification.resend');
+});
+
+// Account verified
+Route::middleware(['auth','verified'])->group(function(){
+
+    Route::post('/logout', [LogoutController::class, 'handle'])->name('logout');
+
+    Route::get('/admin',[AdminController::class, 'index'])->name('admin');
 
     Route::get('/addproduct',[AdminController::class, 'add'])->name('addpackage');
     Route::post('/addproduct',[AdminController::class, 'create']);
 
-    Route::get('/edit/{id}',[AdminController::class, 'edit']);
-    Route::post('/edit',[AdminController::class, 'update']);
-
     Route::get('deleteproduct/{id}',[AdminController::class, 'delete']);
-
 });
