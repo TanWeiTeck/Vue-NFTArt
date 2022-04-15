@@ -6,7 +6,7 @@
             <!--The div element for the map -->
             <h1>hi</h1>
             <button @click="initMap">mapbtn</button>
-            <div id="map" class="bg-yellow-300"></div>
+            <div id="map" class=""></div>
         </body>
     </div>
 </template>

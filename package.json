@@ -29,6 +29,7 @@
     },
     "dependencies": {
         "async": "^3.2.3",
+        "vue-owl-carousel": "^2.0.3",
         "vue2-google-maps": "^0.10.7"
     }
 }

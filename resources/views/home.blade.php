@@ -3,44 +3,12 @@
     ])
 
 @section('head')
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <!-- Swiper's CSS -->
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+
 @stop
 
 @section('content')
 
-    <div class="swiper mySwiper mb-4">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img
-                class="object-cover w-full sm:h-96 h-48"
-                src="https://source.unsplash.com/user/erondu/3000x900"
-                alt="apple watch photo"/>
-            </div>
-            <div class="swiper-slide">
-                <img
-                class="object-cover w-full  sm:h-96 h-48"
-                src="https://source.unsplash.com/collection/190727/3000x900"
-                alt="apple watch photo"/>
-            </div>
-            <div class="swiper-slide">
-                <img
-                class="object-cover w-full sm:h-96 h-48"
-                src="https://source.unsplash.com/collection/190728/3000x900"
-                alt="apple watch photo"/>
-            </div>
-        </div>
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-pagination"></div>
-    </div>
+    <vue-carousel></vue-carousel>
 
     @include('partials.productsection', ['slot'=> 'All Product'])
 
@@ -69,27 +37,5 @@
 @stop
 
 @section('script')
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-      var swiper = new Swiper('.mySwiper', {
-        spaceBetween: 0,
-        centeredSlides: true,
-        autoplay: {
-          delay: 5000,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      });
-    </script>
-
-
 
 @stop

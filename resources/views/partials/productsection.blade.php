@@ -5,6 +5,7 @@
         @foreach ($product as $product)
         {{-- vue product card --}}
         <vue-productcard :product='@json($product)'></vue-productcard>
+
         @endforeach
     </div>
 </div>

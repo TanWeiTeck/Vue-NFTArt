@@ -10,6 +10,8 @@ use App\Http\Controllers\Web\AdminController;
 use App\Http\Controllers\JoinTableController;
 // email verification
 use App\Http\Controllers\Auth\VerificationController;
+// carousel
+use App\Http\Controllers\CarouselController;
 
 
 
@@ -25,6 +27,8 @@ use App\Http\Controllers\Auth\VerificationController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/image-slides', [CarouselController::class, 'carousel']);
+
 Route::get('/all', [ProductController::class, 'index']);
 Route::get('/art', [ProductController::class, 'index1']);
 Route::get('/collection', [ProductController::class, 'index2']);
@@ -58,3 +62,8 @@ Route::middleware(['auth','verified'])->group(function(){
 
     Route::get('deleteproduct/{id}',[AdminController::class, 'delete']);
 });
+
+
+//  Carousel Sample
+Route::get('/carousel', [CarouselController::class, 'index']);
+Route::get('/image-slides', [CarouselController::class, 'carousel']);

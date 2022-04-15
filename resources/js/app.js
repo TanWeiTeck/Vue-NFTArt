@@ -43,6 +43,9 @@ Vue.component(
     require("./components/ScrollToTop.vue").default
 );
 
+// Carousel
+Vue.component("vue-carousel", require("./components/Carousel.vue").default);
+
 // Google Map
 import * as VueGoogleMaps from "vue2-google-maps";
 

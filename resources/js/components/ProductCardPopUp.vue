@@ -1,5 +1,8 @@
 <template>
-    <div class="z-10 fixed bg-black/80 w-screen h-screen top-0 right-0 self">
+    <div
+        class="z-10 fixed bg-black/80 w-screen h-screen top-0 right-0 self"
+        @click.self="toggle"
+    >
         <div
             class="h-full flex flex-col md:flex-row justify-center content-center items-center m-2"
         >
