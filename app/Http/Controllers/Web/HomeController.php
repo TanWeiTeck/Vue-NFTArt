@@ -11,11 +11,9 @@ use App\Models\Post;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         $product = Product::get();
-
         return view('home', ['product' => $product]);
     }
 }
-
-

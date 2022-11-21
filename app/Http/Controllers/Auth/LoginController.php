@@ -20,7 +20,7 @@ class LoginController extends Controller
             'password' => request('password')
         ], request()->has('remember'));
 
-        if($login) {
+        if ($login) {
             return redirect()->to(RouteServiceProvider::HOME);
         }
 

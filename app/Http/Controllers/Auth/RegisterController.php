@@ -20,30 +20,31 @@ class RegisterController extends Controller
 
     // verify email
     /**
-    * Handle account registration request
-    *
-    * @param RegisterRequest $request
-    *
-    * @return \Illuminate\Http\Response
-    */
+     * Handle account registration request
+     *
+     * @param RegisterRequest $request
+     *
+     * @return \Illuminate\Http\Response
+     */
 
     public function register()
     {
         $input = request()->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required','unique:users', 'email', 'max:255'],
+            'email' => ['required', 'unique:users', 'email', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
         $user = User::create(array_merge(
-            $input, [
+            $input,
+            [
                 'password' => Hash::make(request('password'))
             ]
-    ));
+        ));
 
-    event(new Registered($user));
+        event(new Registered($user));
 
-    auth()->login($user);
+        auth()->login($user);
 
-    return redirect('/email/verify')->with('success', "Account successfully registered.");
+        return redirect('/email/verify')->with('success', "Account successfully registered.");
     }
 }

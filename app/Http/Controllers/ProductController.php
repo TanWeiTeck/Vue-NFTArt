@@ -11,34 +11,38 @@ use App\Mail\PurchaseOrder;
 
 class ProductController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $product = Product::with('category')->get();
-        // dd($Product);
         return view('all', ['product' => $product]);
     }
-    public function index1() {
-        $product = Product::where('category_id',1)->get();
+    public function index1()
+    {
+        $product = Product::where('category_id', 1)->get();
         return view('art', ['product' => $product]);
     }
 
-    public function index2() {
-        $product = Product::where('category_id',2)->get();
+    public function index2()
+    {
+        $product = Product::where('category_id', 2)->get();
         return view('collection', ['product' => $product]);
     }
 
-    public function payment($id) {
+    public function payment($id)
+    {
         $product = Product::find($id);
         return view('payment', ['product' => $product]);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
 
-        $this->validate($request,[
-            'id'=>'required',
-            'name'=>'required',
-            'email'=>'required',
-            'contact'=>'required',
-            'payment_method'=>'required'
+        $this->validate($request, [
+            'id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'payment_method' => 'required'
         ]);
 
 
